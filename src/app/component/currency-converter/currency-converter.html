@@ -1,0 +1,32 @@
+<div class="max-w-md mx-auto mt-10 p-6 rounded-2xl shadow-lg bg-pink-50 border border-pink-200">
+  <h2 class="text-2xl font-bold text-pink-600 mb-4 text-center">
+    🌍 Currency Converter
+  </h2>
+
+  <label class="block font-semibold text-pink-700 mb-1">Select Currency:</label>
+  <select
+    class="w-full px-4 py-2 border rounded-md mb-4 bg-white border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+    [value]="baseCurrency()"
+      (change)="changeCurrencyFromEvent($event)"
+
+  >
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+  </select>
+
+  <label class="block font-semibold text-pink-700 mb-1">Enter Amount:</label>
+  <input
+    type="number"
+    min="1"
+    class="w-full px-4 py-2 border rounded-md bg-white border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+    [value]="amount()"
+      (input)="changeAmountFromEvent($event)"
+  />
+
+  <div
+    class="mt-6 p-4 bg-pink-100 border border-pink-300 rounded-md text-pink-800 font-semibold text-lg text-center"
+  >
+    💰 Converted: ৳ {{ convertedValue() }}
+  </div>
+</div>
