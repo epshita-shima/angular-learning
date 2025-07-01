@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Counter } from './component/counter/counter';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+   standalone: true,
+  imports: [RouterOutlet,Counter],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] // app.ts
 })
 export class App {
   protected title = 'my-counter-app-with-signal';

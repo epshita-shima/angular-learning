@@ -1,0 +1,23 @@
+<div class="flex flex-col items-center justify-center min-h-screen space-y-6 bg-gray-50">
+  <h2 class="text-2xl font-bold text-gray-800">Counter: {{ count() }}</h2>
+
+  <div class="flex space-x-4">
+    <button 
+      (click)="decrement()" 
+      class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-xl shadow">
+      Decrement
+    </button>
+    
+    <button 
+      (click)="increment()" 
+      class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-xl shadow">
+      Increment
+    </button>
+    
+    <button 
+      (click)="reset()" 
+      class="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-xl shadow">
+      Reset
+    </button>
+  </div>
+</div>
