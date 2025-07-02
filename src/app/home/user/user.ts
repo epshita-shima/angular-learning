@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +6,9 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
-export class User implements OnChanges {
+export class User implements OnChanges, DoCheck {
   @Input() userName: string = '';
+  @Input() userDetails!: { name: string; age: number };
 
   ngOnChanges(changes: SimpleChanges): void {
     for (const key in changes) {
@@ -18,5 +19,11 @@ export class User implements OnChanges {
       console.log(`First Change: ${change.firstChange}`);
       console.log('----------------------');
     }
+  }
+
+
+  // ✅ 3. DoCheck
+  ngDoCheck(): void {
+    console.log('🔍 Custom Change Detection Triggered');
   }
 }

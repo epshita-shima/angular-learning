@@ -9,8 +9,14 @@ import { User } from './user/user';
 })
 export class Home {
   userName: string = 'Shima';
-
+ userDetails = { name: 'Shima', age: 25 }; 
   changeName() {
     this.userName = this.userName === 'Shima' ? 'Epshita' : 'Shima';
+  }
+
+   
+
+  changeUserName() {
+    this.userDetails.name = this.userDetails.name === 'Shima' ? 'Epshita' : 'Shima';
   }
 }
