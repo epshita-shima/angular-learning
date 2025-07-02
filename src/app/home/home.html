@@ -1,6 +1,6 @@
 <div class="min-h-screen bg-gradient-to-br from-purple-100 to-white flex flex-col items-center justify-center p-6">
     <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-xl text-center">
-        <h2 class="text-3xl font-bold text-purple-600 mb-6">🌟 This is Home Component</h2>
+        <!-- <h2 class="text-3xl font-bold text-purple-600 mb-6">🌟 This is Home Component</h2>
 
         <button
             class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 shadow-md mb-6"
@@ -8,7 +8,7 @@
             🔁 Change User Name
         </button>
 
-        <button class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg mb-4" (click)="changeUserName()">
+        <button class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 shadow-md mb-6 ml-2" (click)="changeUserName()">
             🔁 Change Name Inside Object
         </button>
 
@@ -18,8 +18,13 @@
 </button>
 
 
-         <!-- <app-user [userName]="userName" [userDetails]="userDetails"></app-user> -->
-        <app-timer *ngIf="showTimer"></app-timer>
+         <app-user [userName]="userName" [userDetails]="userDetails"></app-user>
+        <app-timer *ngIf="showTimer"></app-timer> -->
+
+           <h2>Parent Component</h2>
+    <app-childcomponent>
+      <p> projected content send from parent</p>
+    </app-childcomponent>
 
     </div>
 </div>
