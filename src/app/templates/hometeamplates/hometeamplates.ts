@@ -3,7 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-hometeamplates',
-  imports: [CommonModule,FormsModule ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './hometeamplates.html',
   styleUrl: './hometeamplates.css'
 })
@@ -37,11 +37,11 @@ export class Hometeamplates {
 
   submitForm(event: Event) {
     event.preventDefault(); // default reload বন্ধ
-    const username=this.usernameInput.nativeElement.value;
-    console.log('Form submitted!',username);
+    const username = this.usernameInput.nativeElement.value;
+    console.log('Form submitted!', username);
   }
 
-  onEnterKey(){
+  onEnterKey() {
     alert('you pressed enter')
   }
 
@@ -49,7 +49,20 @@ export class Hometeamplates {
 
   name = '';
 
-onNameChange() {
-  console.log('Name changed to:', this.name);
-}
+  onNameChange() {
+    console.log('Name changed to:', this.name);
+  }
+
+  greet(name: string) {
+    alert('Hello, ' + name + '!');
+  }
+
+    parentClicked() {
+    console.log('Parent DIV clicked!');
+  }
+
+  childClicked(event: Event) {
+    event.stopPropagation(); // Prevent parent click
+    console.log('Child BUTTON clicked!');
+  }
 }
