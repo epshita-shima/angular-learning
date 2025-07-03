@@ -110,8 +110,32 @@
     <p>JSON View: {{ { name: myname, dob: birthday } | json }}</p>
 
     <h2 class="text-2xl mt-4 text-amber-700 font-bold">ng-content</h2>
-   <app-card>
-  <h2 card-title>Angular ng-content</h2>
-  <p card-body>This text goes into the card body.</p>
-</app-card>
+    <app-card>
+        <h2 card-title>Angular ng-content</h2>
+        <p card-body>This text goes into the card body.</p>
+    </app-card>
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">ng-template</h2>
+    <div *ngIf="isLoggedIn; else guestBlock">
+        <p>Welcome back, user!</p>
+    </div>
+
+    <ng-template #guestBlock>
+        <p>Please log in to continue.</p>
+    </ng-template>
+
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">Reusing Template Fragment</h2>
+    <ng-template #loadingTemplate>
+        <p>Loading,please wait....</p>
+    </ng-template>
+
+    <div *ngIf="isLoggedIn" else contentBlock>
+        <ng-container *ngTemplateOutlet="loadingTemplate"></ng-container>
+
+    </div>
+
+    <ng-template #contentBlock>
+        <p>Data loaded successfully!</p>
+    </ng-template>
 </div>
