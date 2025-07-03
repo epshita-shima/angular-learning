@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +6,11 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
-export class User {
+export class User implements OnChanges, DoCheck {
  @Input() userName: string = '';
+  @Input() user: any;
+  private prevName: string = '';
+
 
   ngOnChanges(changes: SimpleChanges) {
     for (const inputName in changes) {
@@ -17,4 +20,13 @@ export class User {
       console.log(`Is first ${inputName} change == ${inputValues.firstChange}`);
     }
   }
+
+     ngDoCheck() {
+    if (this.user.name !== this.prevName) {
+      console.log('Name changed manually!');
+      this.prevName = this.user.name;
+    }
+  }
+
+ 
 }
