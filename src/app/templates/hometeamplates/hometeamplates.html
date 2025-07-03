@@ -1,0 +1,5 @@
+<h2>Welcome, {{ userName }}!</h2>
+<img [src]="profileImage" alt="Profile Image">
+<button [attr.disabled]="isDisabled ? '' : null">Submit</button>
+<p [class.active]="isActive">This is an active paragraph</p>
+<h3 [style.color]="fontColor">Colored text</h3>
