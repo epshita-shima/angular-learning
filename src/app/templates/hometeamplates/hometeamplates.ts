@@ -87,4 +87,6 @@ export class Hometeamplates {
    myname = 'shima khatun';
   birthday = new Date(2000, 11, 15);
   salary = 4567.789;
+
+  isLoggedIn = true;
 }
