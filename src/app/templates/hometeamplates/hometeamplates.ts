@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Card } from './card/card';
 @Component({
   selector: 'app-hometeamplates',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,Card],
   templateUrl: './hometeamplates.html',
   styleUrl: './hometeamplates.css'
 })
