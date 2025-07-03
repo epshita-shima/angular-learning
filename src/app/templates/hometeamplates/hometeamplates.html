@@ -101,4 +101,11 @@
 } @else {
   {{a}} is equal to {{b}}
 }
+
+<h2 class="text-2xl mt-4 text-amber-700 font-bold">Use pipes with example</h2>
+<p>Uppercase: {{ myname | uppercase }}</p>
+<p>Titlecase: {{ myname | titlecase }}</p>
+<p>Birth Date: {{ birthday | date:'fullDate' }}</p>
+<p>Salary: {{ salary | currency:'BDT':'symbol-narrow' }}</p>
+<p>JSON View: {{ { name: myname, dob: birthday } | json }}</p>
 </div>
