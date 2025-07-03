@@ -74,4 +74,31 @@
             Click Me (Child)
         </button>
     </div>
+
+    <h2 class="text-amber-500 font-bold">Control Flow</h2>
+    <ul>
+        @for (item of items; track item.name) {
+        <li>{{ item.name }}</li>
+        } @empty {
+        <li aria-hidden="true">There are no items.</li>
+        }
+    </ul>
+
+    @for (item of items; track item.id; let idx = $index, e = $even) {
+    <p>Item #{{ e }}: {{ item.name }}</p>
+    }
+
+    <h2>Use if</h2>
+    @if (user.profile.settings.startDate; as startDate) {
+  {{ startDate }}
+}
+
+<h2>use if else logic</h2>
+@if (a > b) {
+  {{a}} is greater than {{b}}
+} @else if (b > a) {
+  {{a}} is less than {{b}}
+} @else {
+  {{a}} is equal to {{b}}
+}
 </div>

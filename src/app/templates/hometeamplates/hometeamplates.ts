@@ -65,4 +65,21 @@ export class Hometeamplates {
     event.stopPropagation(); // Prevent parent click
     console.log('Child BUTTON clicked!');
   }
+
+   items = [
+    {id:1, name: 'Apple' },
+    {id:2, name: 'Banana' },
+    {id:3, name: 'Cherry' }
+  ];
+
+    user = {
+    profile: {
+      settings: {
+        startDate: '2025-07-03'
+      }
+    }
+  };
+
+  a = 10;
+  b = 20;
 }
