@@ -1,0 +1,141 @@
+<div class="max-w-md mx-auto mt-10 p-6 rounded-2xl shadow-lg bg-amber-50 border border-amber-200 space-y-6 text-center">
+    <h2 class="text-2xl font-bold text-amber-700">
+        Welcome, {{ userName }}!
+    </h2>
+
+    <img [src]="profileImage" alt="Profile Image"
+        class="w-32 h-32 rounded-full mx-auto border-4 border-amber-300 shadow-md" />
+
+    <button
+        class="w-full py-2 px-4 rounded-md bg-amber-600 text-white font-semibold shadow hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        [attr.disabled]="isDisabled ? '' : null">
+        Submit
+    </button>
+
+    <p [class.active]="isActive" class="text-lg" [class.text-green-600]="isActive" [class.text-gray-500]="!isActive">
+        This is an active paragraph
+    </p>
+
+    <h3 [style.color]="fontColor" class="text-xl font-medium">
+        Colored text
+    </h3>
+
+    <button class="w-full py-2 px-4 rounded-md bg-amber-600 text-white font-semibold shadow hover:bg-amber-700"
+        (click)="handleClick()">
+        Click Me
+    </button>
+
+    <input type="text"
+        class="w-full px-4 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+        placeholder="Type here" (input)="onInput($event)" />
+
+    <p class="text-md text-gray-700">
+        You typed: <span class="font-semibold text-amber-700">{{ message }}</span>
+    </p>
+
+    <button class="w-full py-2 px-4 rounded-md bg-amber-600 text-white font-semibold shadow hover:bg-amber-700"
+        (click)="showEventDetails($event)">Details</button>
+
+    <h2>From Submit</h2>
+
+    <form (submit)="submitForm($event)">
+        <input
+            class="w-full px-4 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+            #usernameInput placeholder="username" type="text" name="username">
+        <button class="w-full py-2 px-4 rounded-md bg-amber-600 text-white font-semibold shadow hover:bg-amber-700 mt-2"
+            type="submit">Submit</button>
+    </form>
+
+    <input
+        class="w-full px-4 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+        (keyup.enter)="onEnterKey()">
+
+
+    <div (mouseover)="hovering = true" (mouseout)="hovering = false">
+        Hover me!
+    </div>
+    <p *ngIf="hovering">You are hovering!</p>
+
+    <input
+        class="w-full px-4 py-2 border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+        [(ngModel)]="name" (input)="onNameChange()">
+    <p>Hello, {{ name }}</p>
+
+    <button class="w-full py-2 px-4 rounded-md bg-amber-600 text-white font-semibold shadow hover:bg-amber-700 mt-2"
+        (click)="greet('Shima')">Greet
+
+    </button>
+
+    <h2>Event Bubling</h2>
+    <div (click)="parentClicked()" style="padding: 30px; background-color: lightblue;">
+        Parent Div
+
+        <button (click)="childClicked($event)" style="margin-top: 10px;">
+            Click Me (Child)
+        </button>
+    </div>
+
+    <h2 class="text-amber-500 font-bold">Control Flow</h2>
+    <ul>
+        @for (item of items; track item.name) {
+        <li>{{ item.name }}</li>
+        } @empty {
+        <li aria-hidden="true">There are no items.</li>
+        }
+    </ul>
+
+    @for (item of items; track item.id; let idx = $index, e = $even) {
+    <p>Item #{{ e }}: {{ item.name }}</p>
+    }
+
+    <h2>Use if</h2>
+    @if (user.profile.settings.startDate; as startDate) {
+    {{ startDate }}
+    }
+
+    <h2>use if else logic</h2>
+    @if (a > b) {
+    {{a}} is greater than {{b}}
+    } @else if (b > a) {
+    {{a}} is less than {{b}}
+    } @else {
+    {{a}} is equal to {{b}}
+    }
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">Use pipes with example</h2>
+    <p>Uppercase: {{ myname | uppercase }}</p>
+    <p>Titlecase: {{ myname | titlecase }}</p>
+    <p>Birth Date: {{ birthday | date:'fullDate' }}</p>
+    <p>Salary: {{ salary | currency:'BDT':'symbol-narrow' }}</p>
+    <p>JSON View: {{ { name: myname, dob: birthday } | json }}</p>
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">ng-content</h2>
+    <app-card>
+        <h2 card-title>Angular ng-content</h2>
+        <p card-body>This text goes into the card body.</p>
+    </app-card>
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">ng-template</h2>
+    <div *ngIf="isLoggedIn; else guestBlock">
+        <p>Welcome back, user!</p>
+    </div>
+
+    <ng-template #guestBlock>
+        <p>Please log in to continue.</p>
+    </ng-template>
+
+
+    <h2 class="text-2xl mt-4 text-amber-700 font-bold">Reusing Template Fragment</h2>
+    <ng-template #loadingTemplate>
+        <p>Loading,please wait....</p>
+    </ng-template>
+
+    <div *ngIf="isLoggedIn" else contentBlock>
+        <ng-container *ngTemplateOutlet="loadingTemplate"></ng-container>
+
+    </div>
+
+    <ng-template #contentBlock>
+        <p>Data loaded successfully!</p>
+    </ng-template>
+</div>
