@@ -1,15 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Card } from './card/card';
 @Component({
   selector: 'app-hometeamplates',
-  imports: [CommonModule, FormsModule,Card],
+  imports: [CommonModule, FormsModule, Card],
   templateUrl: './hometeamplates.html',
-  styleUrl: './hometeamplates.css'
+  styleUrl: './hometeamplates.css',
 })
 export class Hometeamplates {
   @ViewChild('usernameInput') usernameInput!: ElementRef;
+  @ViewChild('myTemplate') templateRef!: TemplateRef<any>;
+  constructor(private viewContainerRef: ViewContainerRef) {}
+
   // Text Interpolation
   userName = 'Shima Khatun';
   // Property Binding
@@ -18,7 +27,7 @@ export class Hometeamplates {
   isDisabled = true;
   // Class Binding
   isActive = true;
-  //  Style Binding 
+  //  Style Binding
   fontColor = 'green';
 
   handleClick() {
@@ -43,7 +52,7 @@ export class Hometeamplates {
   }
 
   onEnterKey() {
-    alert('you pressed enter')
+    alert('you pressed enter');
   }
 
   hovering = false;
@@ -58,7 +67,7 @@ export class Hometeamplates {
     alert('Hello, ' + name + '!');
   }
 
-    parentClicked() {
+  parentClicked() {
     console.log('Parent DIV clicked!');
   }
 
@@ -67,26 +76,32 @@ export class Hometeamplates {
     console.log('Child BUTTON clicked!');
   }
 
-   items = [
-    {id:1, name: 'Apple' },
-    {id:2, name: 'Banana' },
-    {id:3, name: 'Cherry' }
+  items = [
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Cherry' },
   ];
 
-    user = {
+  user = {
     profile: {
       settings: {
-        startDate: '2025-07-03'
-      }
-    }
+        startDate: '2025-07-03',
+      },
+    },
   };
 
   a = 10;
   b = 20;
 
-   myname = 'shima khatun';
+  myname = 'shima khatun';
   birthday = new Date(2000, 11, 15);
   salary = 4567.789;
 
   isLoggedIn = true;
+
+  //ViewContainerRef
+  loadTemplate() {
+    this.viewContainerRef.clear();
+    this.viewContainerRef.createEmbeddedView(this.templateRef);
+  }
 }
