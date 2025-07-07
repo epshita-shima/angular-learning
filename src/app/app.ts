@@ -8,13 +8,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Hometeamplates } from './templates/hometeamplates/hometeamplates';
 
-
 @Component({
   selector: 'app-root',
-   standalone: true,
-  imports: [CommonModule ,FormsModule,RouterOutlet,Counter,CurrencyConverter,ProfileCard,Home,Hometeamplates],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterOutlet,
+    // Counter,
+    // CurrencyConverter,
+    // ProfileCard,
+    // Home,
+    Hometeamplates,
+  ],
   templateUrl: './app.html',
-  styleUrls: ['./app.css'] // app.ts
+  styleUrls: ['./app.css'], // app.ts
 })
 export class App {
   protected title = 'my-counter-app-with-signal';

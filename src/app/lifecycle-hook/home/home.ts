@@ -5,14 +5,18 @@ import { Timercomponent } from './timercomponent/timercomponent';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule ,User,Timercomponent],
+  imports: [
+    CommonModule,
+    // User,
+    Timercomponent,
+  ],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
 })
 export class Home {
- userName: string = 'Shima';
- user = { name: 'Shima' };
- showTimer = true;
+  userName: string = 'Shima';
+  user = { name: 'Shima' };
+  showTimer = true;
 
   changeName() {
     this.userName = this.userName === 'Shima' ? 'Epshita' : 'Shima';

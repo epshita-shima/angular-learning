@@ -104,4 +104,13 @@ export class Hometeamplates {
     this.viewContainerRef.clear();
     this.viewContainerRef.createEmbeddedView(this.templateRef);
   }
+
+  showSad = true;
+  hero = null;
+  heroes = [
+    { name: 'Superman', emotion: 'happy' },
+    { name: 'Batman', emotion: 'sad' },
+    { name: 'Wonder Woman', emotion: 'excited' },
+    { name: 'Spiderman', emotion: 'neutral' },
+  ];
 }

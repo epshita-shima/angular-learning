@@ -189,6 +189,58 @@
     <p>This is a dynamically loaded template!</p>
   </ng-template>
 
-  <h2>Variables in Teamplates</h2>
+  <h2>Directives</h2>
+  <p class="hidden">
+    Angular এ "Directive" মানে হচ্ছে এমন কিছু instruction বা নির্দেশনা যা HTML
+    element গুলোর উপর apply করে তাদের আচরণ বা স্টাইল পরিবর্তন করা যায়।
+  </p>
+  <p class="hidden">
+    ng-container হলো একটি non-rendering logical container — অর্থাৎ এটি DOM-এ
+    কোনো actual element তৈরি করে না, বরং কেবল Angular structural directive
+    (*ngIf, *ngFor, *ngSwitch, ইত্যাদি) ব্যবহার করার জন্য ব্যবহার হয়।
+  </p>
 
+  <div
+    class="max-w-md mx-auto mt-10 p-6 rounded-2xl shadow-lg bg-white border border-gray-200"
+  >
+    <h2 class="text-xl font-semibold mb-4 text-gray-800">
+      Pick your favorite hero
+    </h2>
+    <label
+      for=""
+      class="flex items-center mb-4 space-x-2 text-sm text-gray-600"
+    >
+      <input
+        id="showSad"
+        type="checkbox"
+        class="accent-pink-500 rounded"
+        [checked]="showSad"
+        (change)="showSad = !showSad"
+      />
+      <span>Show sad heroes</span>
+    </label>
+
+    <select
+      [(ngModel)]="hero"
+      class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+    >
+      <ng-container *ngFor="let h of heroes">
+        <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+          <option [ngClass]="h">{{ h.name }} {{ h.emotion }}</option>
+        </ng-container>
+      </ng-container>
+    </select>
+    <h2 class="text-xl font-semibold mb-4 text-gray-800">
+      Building an attribute directive
+    </h2>
+
+
+    <div class="max-w-md mx-auto mt-10 p-6 rounded-xl shadow bg-white border border-gray-200">
+  <h2 class="text-xl font-bold mb-4 text-gray-800">Highlight Directive Example</h2>
+
+  <p appHighlight class="p-3 rounded-md">
+    This paragraph is highlighted with a yellow background using <code>appHighlight</code> directive!
+  </p>
+</div>
+  </div>
 </div>
