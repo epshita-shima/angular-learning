@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { Card } from './card/card';
 @Component({
   selector: 'app-hometeamplates',
+  standalone: true,
   imports: [CommonModule, FormsModule, Card],
   templateUrl: './hometeamplates.html',
   styleUrl: './hometeamplates.css',

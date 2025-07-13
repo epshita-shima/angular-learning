@@ -5,6 +5,7 @@ import { Timercomponent } from './timercomponent/timercomponent';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [
     CommonModule,
     // User,

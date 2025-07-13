@@ -1,16 +1,23 @@
-import { Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-user',
   imports: [],
   templateUrl: './user.html',
-  styleUrl: './user.css'
+  styleUrl: './user.css',
 })
 export class User implements OnChanges, DoCheck {
- @Input() userName: string = '';
+  @Input() userName: string = '';
   @Input() user: any;
   private prevName: string = '';
-
 
   ngOnChanges(changes: SimpleChanges) {
     for (const inputName in changes) {
@@ -21,12 +28,10 @@ export class User implements OnChanges, DoCheck {
     }
   }
 
-     ngDoCheck() {
+  ngDoCheck() {
     if (this.user.name !== this.prevName) {
       console.log('Name changed manually!');
       this.prevName = this.user.name;
     }
   }
-
- 
 }
