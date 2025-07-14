@@ -1,0 +1,62 @@
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.input-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input-section button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.input-section button:hover {
+  background-color: #005fa3;
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.column {
+  width: 250px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.drop-list {
+  min-height: 300px;
+  background-color: #fff;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+}
+
+.drag-item {
+  padding: 10px;
+  background-color: #e0e0e0;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  cursor: grab;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}

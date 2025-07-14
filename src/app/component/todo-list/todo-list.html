@@ -1,0 +1,88 @@
+<div class="container mx-auto p-6">
+  <!-- Header -->
+  <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">
+    🧩 Angular Task Board
+  </h2>
+
+  <!-- Input section -->
+  <div class="flex justify-center mb-8 gap-4">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      placeholder="new task..."
+      class="w-full max-w-md px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      (click)="addTask()"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md transition"
+    >
+      Add
+    </button>
+  </div>
+
+  <!-- Kanban Board -->
+<div class="grid grid-cols-3 gap-6">
+  <!-- Todo Column -->
+  <div class="bg-white shadow-md rounded-lg p-4">
+    <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">📝 Todo</h3>
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="['inProgressList', 'doneList']"
+      id="todoList"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-2"
+    >
+      <div
+        *ngFor="let item of todo"
+        cdkDrag
+        class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md shadow-sm cursor-move"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+
+  <!-- In Progress Column -->
+  <div class="bg-white shadow-md rounded-lg p-4">
+    <h3 class="text-xl font-semibold text-center text-yellow-600 mb-4">🚧 In Progress</h3>
+    <div
+      cdkDropList
+      [cdkDropListData]="inProgress"
+      [cdkDropListConnectedTo]="['todoList', 'doneList']"
+      id="inProgressList"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-2"
+    >
+      <div
+        *ngFor="let item of inProgress"
+        cdkDrag
+        class="bg-yellow-100 hover:bg-yellow-200 px-4 py-2 rounded-md shadow-sm cursor-move"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Done Column -->
+  <div class="bg-white shadow-md rounded-lg p-4">
+    <h3 class="text-xl font-semibold text-center text-green-600 mb-4">✅ Done</h3>
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="['todoList', 'inProgressList']"
+      id="doneList"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-2"
+    >
+      <div
+        *ngFor="let item of done"
+        cdkDrag
+        class="bg-green-100 hover:bg-green-200 px-4 py-2 rounded-md shadow-sm cursor-move"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>
+
