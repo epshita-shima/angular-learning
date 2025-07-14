@@ -6,6 +6,7 @@ import { ProfileCard } from './component/profile-card/profile-card';
 import { NgModule } from '@angular/core';
 import { UserRegistration } from './component/user-registration/user-registration';
 import { UserDetailsList } from './component/user-details-list/user-details-list';
+import { TodoList } from './component/todo-list/todo-list';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,6 +20,10 @@ export const routes: Routes = [
   {
     path: 'user-details',
     component: UserDetailsList,
+  },
+  {
+    path: 'todo-list',
+    component: TodoList,
   },
 ];
 
